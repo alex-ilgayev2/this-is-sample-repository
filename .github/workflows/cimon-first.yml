@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  push:
+  
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - uses: cycodelabs/cimon-action@v0
+        with:
+          client-id: ${{ secrets.CIMON_CLIENT_ID }}
+          secret: ${{ secrets.CIMON_SECRET }}
+          fail-on-err: true
+
+      - run: curl cycode.com
